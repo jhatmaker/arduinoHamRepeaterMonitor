@@ -6,7 +6,8 @@
  * 
  * 
  * The Circuit:
- * 
+ *  TBD
+ *
  * LCD RS pin to digital pin 
  */
 
@@ -132,9 +133,7 @@ void resetTimer(){
    startTime = 0;
    setBacklight(0,255,0); // Not in TX. GREEN
    clearLine(1);
-   lcd.print((String)"Status: Idle");
-   
-   
+   lcd.print((String)"Status: Idle");  
 }
 
 void clearLine(int lineIDX){
@@ -143,14 +142,13 @@ void clearLine(int lineIDX){
     lcd.print(" ");
   }
   lcd.setCursor(0,lineIDX);
-
 }
 
 void setBacklight(uint8_t r, uint8_t g, uint8_t b) {
   // normalize the red LED - its brighter than the rest!
   r = map(r, 0, 255, 0, 100);
   g = map(g, 0, 255, 0, 150);
- 
+  // Adjust the brightness
   r = map(r, 0, 255, 0, brightness);
   g = map(g, 0, 255, 0, brightness);
   b = map(b, 0, 255, 0, brightness);
